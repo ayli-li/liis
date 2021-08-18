@@ -1,0 +1,100 @@
+.container {
+  background: url('../../images/auth-bg.jpg') no-repeat;
+  background-size: cover;
+  height: 100%;
+  padding-top: 306px;
+}
+
+.auth {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;  
+  margin: auto;
+  width: 410px;
+  font-family: 'Roboto';
+  background: #FFFFFF;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+}
+
+.auth__heading {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  padding-top: 53px;
+  padding-bottom: 16px;
+}
+
+.auth__form {
+  padding-right: 33px;
+  padding-left: 32px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.auth__form-item {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+.auth__form-label {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 7px;
+}
+
+.auth__form-input {
+  width: 345px;
+  height: 34px;
+  border: 1px solid #C9CACC;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 25px;
+}
+
+.auth__form-error {
+  color: #EB1717;
+  border-color: #EB1717;
+}
+
+.auth__form-error-message {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  color: #EB1717;
+}
+
+.auth__form-error-message_email {
+  position: absolute;
+  top: 61px;
+}
+
+.auth__form-error-message_password {
+  position: absolute;
+  top: 61px;
+}
+
+.auth__form-button {
+  margin-left: auto;
+  width: 116px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #fff;
+  background: linear-gradient(104.34deg, #3C4CAD -15.34%, #00C3FF 145.95%);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-bottom: 37px;
+  border: 0;
+}
+
+.auth__form-button:hover, .auth__form-button:active {
+  cursor: pointer;
+}

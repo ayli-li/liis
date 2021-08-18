@@ -1,0 +1,147 @@
+.flights__info-favorites {
+  font-family: -apple-system, BlinkMacSystemFont,'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 22px;
+  color: #424242;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.flights__info-favorites-count {
+  font-weight: 500;
+  color: #1157A7;
+}
+
+.flights__info-error {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 37px;
+  color: #1157A7;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.flights__info-items {  
+  height: 487px;
+  overflow-y: auto;
+}
+
+.flights__info-items::-webkit-scrollbar {
+  width: 2px;
+  background-color: #E7E7E7;
+  border-radius: 2px;
+}
+
+.flights__info-items::-webkit-scrollbar-thumb{
+  background: #1157A7;
+  width: 2px;
+}
+
+.flights__info-item {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: 7px;
+  margin-bottom: 14px;
+  margin-right: 11px;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+}
+
+.flights__info-item-plane {
+  background: url(../../images/sprite.png);
+  background-position: 0px 0px;
+  width: 64px;
+  height: 64px;
+  margin: 3px 24px 17px 12px;
+}
+
+.flights__info-item-data {
+  display: flex;
+  flex-flow: column nowrap;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #878787;
+  margin-top: 3px;
+}
+
+.flights__info-item-destination {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: #424242;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+}
+
+.flights__info-item-small-arrow {
+  background: url(../../images/sprite.png);
+  background-position: -34px -64px;
+  width: 14px;
+  height: 10px;
+  margin: 0 12px;
+}
+
+.flights__info-item-date {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;  
+}
+
+.flights__info-item-date-dash {
+  background: url(../../images/sprite.png);
+  background-position: -48px -64px;
+  width: 9px;
+  height: 1px;
+  margin: 0 10px;
+}
+
+.flights__info-item-price {
+  margin-left: auto;
+}
+
+.flights__info-item-price-heart {
+  margin-right: 8px;
+  margin-left: auto;
+}
+
+.flights__info-item-price-heart:hover {
+  cursor: pointer;
+}
+
+.flights__info-item-price-heart_disable {
+  background: url(../../images/sprite.png);
+  background-position: 0px -64px;
+  width: 23px;
+  height: 20px;  
+  margin-bottom: 22px;
+}
+
+.flights__info-item-price-heart_active {
+  background: url(../../images/sprite.png);
+  background-position: -64px -46px;
+  width: 21px;
+  height: 18px;
+  margin-bottom: 24px;
+  
+}
+
+.flights__info-item-price-name {
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 22px;
+  color: #878787;
+  margin-right: 8px;
+}
+
+.flights__info-item-price-number {
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+  color: #424242
+}

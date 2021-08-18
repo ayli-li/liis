@@ -1,0 +1,21 @@
+.flights__logout {
+  display: flex;
+  justify-content: flex-end;
+  color: #1157A7;
+  font-family: -apple-system, BlinkMacSystemFont,'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 22px;
+  margin-right: 31px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.flights__logout_logo {
+  background: url(../../images/sprite.png);
+  background-position: -64px -24px;
+  width: 22px;
+  height: 22px;
+  margin-left: 20px;
+}

@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { setFormVerification } from '../../store/auth/action';
+
+import './AuthPage.css';
 
 export const AuthPage = () => {
 
-  const [email, setEmail] = useState('1@mail.ru');
-  const [password, setPassword] = useState('11111111');
-  const [emailVisited, setEmailVisited] = useState(false);
-  const [passwordVisited, setPasswordVisited] = useState(false);
-  const [emailError, setEmailError] = useState('Необходимо ввести электронную почту');
-  const [passwordError, setPasswordError] = useState('Пароль не может быть пустым');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   useEffect( () => {
     (emailError || passwordError) ? setIsFormValid(false) : setIsFormValid(true);
@@ -25,30 +23,27 @@ export const AuthPage = () => {
     setEmail(e.target.value);
     const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     if (!re.test(String(e.target.value))) {
+      e.target.classList.add('auth__form-error');
+      e.target.parentNode.classList.add('auth__form-error');
       setEmailError('Неверный адрес электронной почты');
     } else {
       setEmailError('');
+      e.target.classList.remove('auth__form-error');
+      e.target.parentNode.classList.remove('auth__form-error');
     }
   }
 
   const passwordHandler = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value.length)
     const re = /^[^а-яё]+$/iu;
     if (!re.test(String(e.target.value).toLowerCase()) || e.target.value.length < 8) {
-      setPasswordError('В пароле должно быть минимум 8 символов, без кириллицы')
+      setPasswordError('В пароле должно быть минимум 8 символов, без кириллицы');
+      e.target.classList.add('auth__form-error');
+      e.target.parentNode.classList.add('auth__form-error');
     } else {
       setPasswordError('');
-    }
-  }
-
-  const blurHandler = (e) => {
-    if (e.target.name === 'email') {
-      setEmailVisited(true);
-    }
-
-    if (e.target.name === 'password') {
-      setPasswordVisited(true);
+      e.target.classList.remove('auth__form-error');
+      e.target.parentNode.classList.remove('auth__form-error');
     }
   }
 
@@ -57,28 +52,34 @@ export const AuthPage = () => {
 
     if (isFormValid) {
       dispatch(setFormVerification());
-      console.log(321);
     }
   }
 
   return (
-    <div>
-      <h1>Simple Flight Check</h1>
-      <form>
-        <label htmlFor='email_input'>Логин:</label>
+    <div className='container'  >
+      <div className='auth'>
+        <div className='auth__heading'>Simple Flight Check</div>
+        <form className='auth__form'>
+          <div className='auth__form-item'>
+            <label className='auth__form-label' htmlFor='email_input'>Логин:</label>            
 
-        {(emailVisited && emailError) && <div>{emailError}</div>}
+            <input className='auth__form-input' type='email' name='email' id='email_input' onChange={(e) => emailHandler(e)} value={email} />
 
-        <input type='email' name='email' id='email_input' onChange={(e) => emailHandler(e)} onBlur={(e) => blurHandler(e)} value={email} />
+            { emailError && <div className='auth__form-error-message auth__form-error-message_email'>{emailError}</div> }
+              
+          </div>
 
-        <label htmlFor='password_input'>Пароль:</label>
+          <div className='auth__form-item'>
+            <label className='auth__form-label' htmlFor='password_input'>Пароль:</label>            
 
-        {(passwordVisited && passwordError) && <div>{passwordError}</div>}
+            <input className='auth__form-input' type='password' name='password' id='password_input' onChange={(e) => passwordHandler(e)} value={password} />
 
-        <input type='password' name='password' id='password_input' onChange={(e) => passwordHandler(e)} onBlur={(e) => blurHandler(e)} value={password} />
+            { passwordError && <div className='auth__form-error-message auth__form-error-message_password'>{passwordError}</div> }
+          </div>
 
-        <button type='submit' disabled={!isFormValid} onClick={signIn}>Войти</button>
-      </form>
+          <button className='auth__form-button' type='submit' disabled={!isFormValid} onClick={signIn}>Войти</button>
+        </form>
+      </div>
     </div>
   )
 }

@@ -1,9 +1,12 @@
-import { IS_FORM_VALID } from './constants';
+import { IS_FORM_VALID, LOG_OUT } from './constants';
 
-export const setFormVerification = () => {    
-  console.log(1);
+export const setFormVerification = () => ({
+  type: IS_FORM_VALID
+})
+ 
+export const logOut = () => {
+  localStorage.removeItem('auth-verification');
   return ({
-    type: IS_FORM_VALID
+    type: LOG_OUT
   })
-} 
-
+}

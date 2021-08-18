@@ -1,6 +1,7 @@
 import createReducer from "../../utils/createReducer";
 import {
-  IS_FORM_VALID
+  IS_FORM_VALID,
+  LOG_OUT
 } from "./constants";
 
 const initialState = {
@@ -12,8 +13,14 @@ const setFormVerification = (state) => ({
   isFormValid: true
 });
 
+const logOut = (state) => ({
+  ...state,
+  isFormValid: false
+})
+
 const strategyMap = {
   [IS_FORM_VALID]: setFormVerification,
+  [LOG_OUT]: logOut,
 };
 
 const authReducer = createReducer(strategyMap, initialState);

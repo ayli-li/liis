@@ -1,0 +1,28 @@
+.flights__pics {
+  margin-bottom: 31px;
+  position: relative;
+}
+
+.flights__pics_next-arrow {
+  display: block;
+  border: 0;
+  right: 0px;
+  top: 0;
+  width: 10px;
+  height: 149px; 
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 83.85%);
+  position: absolute;
+  cursor: pointer;
+}
+
+.flights__pics_prev-arrow {
+  display: block;
+  left: 0px;
+  top: 0;
+  width: 10px;
+  height: 149px; 
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 83.85%);
+  border: 0;
+  position: absolute;
+  cursor: pointer;
+}

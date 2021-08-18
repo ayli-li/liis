@@ -1,13 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
-export const FlightsPage = () => {
+import { logOut } from '../../store/auth/action';
 
+import './FlightsPage.css';
+
+import { FlightsLogout } from '../FlightsLogout/FlightsLogout';
+import { FlightsCard } from '../FlightsCard/FlightsCard';
+
+export const FlightsPage = () => { 
+
+  const dispatch = useDispatch();  
+
+  const logout = () => dispatch(logOut());  
 
   return (
+    <div className='flights__container'>
 
-    <div>Дима вредина</div>
+      <FlightsLogout onClick={logout} />
 
-
+      <FlightsCard />
+      
+    </div>
   )
 }
