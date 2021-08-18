@@ -8,7 +8,7 @@ import store from './store/store';
 import history from './utils/history';
 
 ReactDOM.render(
-  <Router history={ history } >
+  <Router history={ history } basename={process.env.PUBLIC_URL} >
     <Provider store={ store }>
       <App />
     </Provider>    
