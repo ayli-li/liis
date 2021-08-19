@@ -21,6 +21,7 @@ export const AuthPage = () => {
 
   const emailHandler = (e) => {
     setEmail(e.target.value);
+
     const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     if (!re.test(String(e.target.value))) {
       e.target.classList.add('auth__form-error');
@@ -30,11 +31,12 @@ export const AuthPage = () => {
       setEmailError('');
       e.target.classList.remove('auth__form-error');
       e.target.parentNode.classList.remove('auth__form-error');
-    }
+    }    
   }
 
   const passwordHandler = (e) => {
     setPassword(e.target.value);
+
     const re = /^[^а-яё]+$/iu;
     if (!re.test(String(e.target.value).toLowerCase()) || e.target.value.length < 8) {
       setPasswordError('В пароле должно быть минимум 8 символов, без кириллицы');
@@ -49,8 +51,7 @@ export const AuthPage = () => {
 
   const signIn = (e) => {
     e.preventDefault();
-
-    if (isFormValid) {
+    if (password.length && email.length && isFormValid) {
       dispatch(setFormVerification());
     }
   }
@@ -77,7 +78,7 @@ export const AuthPage = () => {
             { passwordError && <div className='auth__form-error-message auth__form-error-message_password'>{passwordError}</div> }
           </div>
 
-          <button className='auth__form-button' type='submit' disabled={!isFormValid} onClick={signIn}>Войти</button>
+          <button className='auth__form-button' type='submit' onClick={(e) => signIn(e)}>Войти</button>
         </form>
       </div>
     </div>
